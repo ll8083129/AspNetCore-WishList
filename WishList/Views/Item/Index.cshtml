@@ -1,15 +1,13 @@
-﻿@using WishList.Models
-@model List<WishList.Models.Item>
+﻿@model List<WishList.Models.Item>
 
 <h1>Wishlist</h1>
 <a asp-action="create">Add item</a>
 <ul>
-    @foreach (Item item in Model)
+    @foreach (var item in Model)
     {
-    <li>
-        @item.Description <a asp-action="delete" asp-route-id="@item.Id">delete</a>
-    </li>
+        <li>
+            <a asp-action="delete" asp-route-id="@item.Id">@item.Description</a>
+        </li>
     }
 </ul>
 
-<a asp-action="Index" asp-controller="Item">View wishlist</a>
